@@ -1,0 +1,29 @@
+<h1>{{model.message}}</h1>
+
+<a href="" ng-click="getCustomer()">Get Customer Data</a>
+
+<h2 type="text" ng-model="add" style="width:210px;">{{add}}</h2>
+<table>
+<tr>
+<td>
+<td>Name :</td><td><input type="text" ng-model="name" style="width:210px;"></input></td>
+<td><input type="submit" value="Submit" ng-click="addCustomer(name, id)"></input></td></td><td>Search: <input ng-model="searchText">
+<input type="hidden" ng-model="editflag" style="width:210px;"></input>
+<input type="hidden" ng-model="id" style="width:210px;"></input>
+</tr>
+</table>
+<!-- here i want to do ng-repeat of customer data -->
+<table border="1" style="margin-top:50px;" >
+<tr border="1" >
+<th>ID</td>
+<th>Name</td>
+<th>Edit</td>
+<th>Delete</td>
+</tr>
+<tr border="1" ng-repeat="customer in customers | filter:searchText">
+<td>{{customer.id}}</td>
+<td>{{customer.name}}</td>
+<td><a href="" ng-click="editCustomer(customer.name, customer.id)">Edit</a></td>
+<td><a href="" ng-click="delCustomer(customer.id)">Delete</a></td>
+</tr>
+</table>
